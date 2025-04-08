@@ -7,7 +7,7 @@ export function groupByKey<T>(items: T[], key: keyof T): GroupsMap<T> {
     return {};
   }
 
-  const result: object = [...items];
+  const result: GroupsMap<T> = [...items];
 
-  return result.filter((item) => item.includs(item.key));
+  return result.reduc(item => item.includes(item.key));
 }
