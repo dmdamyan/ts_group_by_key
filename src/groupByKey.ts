@@ -7,7 +7,9 @@ export function groupByKey<T>(items: T[], key: keyof T): GroupsMap<T> {
     return {};
   }
 
-  const result: GroupsMap<T> = [...items];
+  const result: GroupsMap<T>;
 
-  return result.reduc(item => item.includes(item.key));
+  items.forEach(item => item.includes(item.key) ? result.key = item.key);
+
+  return result;
 }
